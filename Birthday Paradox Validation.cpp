@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <stdlib.h>
-#include <time.h>
+
 using namespace std;
 
 int main()
@@ -16,27 +16,27 @@ int main()
 	int i,j,k,temp,match;
 	int bday[23];
 	int no_of_bdays = 23;
-	int no_of_matches=0;
+	int no_of_matches = 0;
 	double no_of_trials = 50000.0;
-	double prob = 1.0,expected_prob,experimental_prob;
+	double prob = 1.0, expected_prob, experimental_prob;
 
-	for(k=1;k<=no_of_trials;k++)
+	for(k=1; k<=no_of_trials; k++)
 	{
-		for (i = 1; i <= no_of_bdays; i++)					//randomly generate 23 bdays
+		for (i=1; i<=no_of_bdays; i++)					//randomly generate 23 bdays
 		{
-			bday[i] = ((rand() % 365) + 1);
+			bday[i]=((rand()%365) + 1);
 			//cout<< bday[i] <<" ";
 		}
 
-		for(i = 1; i <= no_of_bdays; i++)                   //bubble sort bday array
+		for(i=1; i<=no_of_bdays; i++)                   //bubble sort bday array
 		{
-			for (j = 1; j <= no_of_bdays - 1; j++)
+			for (j=1; j<=no_of_bdays-1; j++)
 			{
-				if (bday[j] > bday[j + 1])
+				if (bday[j] > bday[j+1])
 				{
 					temp = bday[j];
-					bday[j] = bday[j + 1];
-					bday[j + 1] = temp;
+					bday[j] = bday[j+1];
+					bday[j+1] = temp;
 				}
 			}
 		}
@@ -46,9 +46,9 @@ int main()
 
 		match=0;
 		i=1;												//find if match is there
-		while (match == 0 && i <= no_of_bdays)
+		while (i <= no_of_bdays && match==0)
 		{
-			if (bday[i] == bday[i + 1])
+			if (bday[i] == bday[i+1])
 				match = 1;
 			else
 				i++;
@@ -66,6 +66,5 @@ int main()
 	    prob = prob * (365-i)/365;
 	expected_prob = 1 - prob;
 	cout<< endl << prob << endl << expected_prob;
-
 }
 
