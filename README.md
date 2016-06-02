@@ -2,8 +2,6 @@
 
 L3Cube Assignments:
 
-Group 90 - TheCodeBusters
-
 ----------------------------------------------------------------------------------------
 Assignment 1 - Birthday Paradox
 
