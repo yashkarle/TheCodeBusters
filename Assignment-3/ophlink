@@ -1,0 +1,10 @@
+supreet@supreet:~$ gcc Fuhh.c 
+supreet@supreet:~$ ./a.out
+Key:1	1982523
+Current Inode Path:/home/supreet/Downloads/bcd.txt
+Old Inode Path:/home/supreet/abc.txt
+1.Remove current file
+2.Remove old file
+3.Ignore
+3
+supreet@supreet:~$ 

@@ -1,0 +1,42 @@
+yash@yash-HP-Pavilion-15-Notebook-PC:~$ ./a.out
+Key  1: .metadata
+Current Inode Path:/home/yash/.mozilla/firefox/auyre1es.default/storage/permanent/moz-safe-about+home/.metadata
+Old Inode Path    :/home/yash/.mozilla/firefox/auyre1es.default/storage/permanent/chrome/.metadata
+
+1.Remove both files
+2.Merge files
+3.Ignore
+3
+Key  2: state.json
+Current Inode Path:/home/yash/.mozilla/firefox/auyre1es.default/healthreport/state.json
+Old Inode Path    :/home/yash/.mozilla/firefox/auyre1es.default/datareporting/state.json
+
+1.Remove both files
+2.Merge files
+3.Ignore
+3
+Key  3: 13f07a330ed7d4684c34d87b43eb64c7.png
+Current Inode Path:/home/yash/.cache/thumbnails/normal/13f07a330ed7d4684c34d87b43eb64c7.png
+Old Inode Path    :/home/yash/.cache/thumbnails/large/13f07a330ed7d4684c34d87b43eb64c7.png
+
+1.Remove both files
+2.Merge files
+3.Ignore
+1
+Key  4: 67c55d684fb574470832049b32d7d509.png
+Current Inode Path:/home/yash/.cache/thumbnails/normal/67c55d684fb574470832049b32d7d509.png
+Old Inode Path    :/home/yash/.cache/thumbnails/large/67c55d684fb574470832049b32d7d509.png
+
+1.Remove both files
+2.Merge files
+3.Ignore
+2
+Key  5: 9eb0ca3cf0cbb1ee1292e70279d85497.png
+Current Inode Path:/home/yash/.cache/thumbnails/normal/9eb0ca3cf0cbb1ee1292e70279d85497.png
+Old Inode Path    :/home/yash/.cache/thumbnails/large/9eb0ca3cf0cbb1ee1292e70279d85497.png
+
+1.Remove both files
+2.Merge files
+3.Ignore
+
+
