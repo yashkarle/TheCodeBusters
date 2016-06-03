@@ -1,7 +1,7 @@
 //============================================================================
 // Name        : Birthday.cpp
 // Author      : TheCodeBusters
-// Version     : Version 2.0
+// Version     : Version 3.0
 // Copyright   : Your copyright notice
 // Description : Validation of the Birthday Paradox
 //============================================================================
@@ -9,6 +9,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <ctime>
+#include <iomanip>
 using namespace std;
 
 int main()
@@ -59,14 +60,14 @@ int main()
 			no_of_matches = no_of_matches + 1;
 	}
 
-	cout << no_of_matches << endl;
+	cout << "No. of trials in which match found = "<<no_of_matches << endl;
 	experimental_prob=no_of_matches/no_of_trials;
-	cout<<experimental_prob;
+	cout<<fixed<<setprecision(15)<<"Experimental Probability value ="<<experimental_prob;
 
 	for(i=0; i<no_of_people; i++)						 //calculate expected probability by formula
 	    prob = prob*(365-i)/365;
 	expected_prob = 1 - prob;
-	cout<< endl /*<< prob << endl*/ << expected_prob;
+	cout<< endl /*<< prob << endl*/ <<fixed<<setprecision(15)<<"Expected Probability value ="<< expected_prob;
 
 }
 
