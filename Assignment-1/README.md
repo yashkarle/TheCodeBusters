@@ -2,7 +2,6 @@ What is the birthday paradox?
 
 The birthday paradox, also known as the birthday problem, states that in a random group of 23 people,
 there is about a 50 percent chance that two people have the same birthday.
-
 The birthday paradox is strange, counter-intuitive and completely true.
 
 If we consider 'N' people for our random experiment,
