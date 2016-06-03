@@ -4,7 +4,7 @@ Files having same filenames are searched throughout the system.
 
 Files having hardlinks with each other(same inode) are searched for throughout the system.
 
-<dirent.h> provides an abstraction for file and directory access via functions like opendir,readdir.
+'<dirent.h>' provides an abstraction for file and directory access via functions like opendir,readdir.
 
 As such duplicate files maybe very large in number hashing has been used for duplicate searching.
 
