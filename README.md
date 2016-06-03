@@ -23,11 +23,11 @@ Usage -
 ----------------------------------------------------------------------------------------
 Assignment 3 - Duplicate Files on a hard drive
 
-Language of Implementation - 
+Language of Implementation - C
 
-Environment used - 
+Environment used - gcc on Linux
 
-Usage -
+Usage - Compile the .c file using gcc and then run the executable file 
 
 ----------------------------------------------------------------------------------------
 
