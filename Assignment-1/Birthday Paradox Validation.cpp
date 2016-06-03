@@ -20,6 +20,7 @@ int main()
 	double no_of_trials = 50000.0;
 	double prob = 1.0,expected_prob,experimental_prob;
 
+	srand(time(0));								//seed generator using time() for rand() function
 	for(k=1; k<=no_of_trials; k++)
 	{
 		for (i=1; i<=no_of_people; i++)					//randomly generate 23 bdays
@@ -62,7 +63,7 @@ int main()
 	experimental_prob=no_of_matches/no_of_trials;
 	cout<<experimental_prob;
 
-	for(i=0; i<no_of_bdays; i++)						 //calculate expected probability by formula
+	for(i=0; i<no_of_people; i++)						 //calculate expected probability by formula
 	    prob = prob*(365-i)/365;
 	expected_prob = 1 - prob;
 	cout<< endl /*<< prob << endl*/ << expected_prob;
