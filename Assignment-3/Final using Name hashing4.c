@@ -1,20 +1,23 @@
 #include <unistd.h>
 #include <sys/types.h>
+//dirent.h is used to access directories in the system
 #include <dirent.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include<string.h>
+#include <pwd.h>
 
 struct node * createNode(char fname[],char path[]);
 void listdir(char *name, int level);
 void insertToHash(char fname[],char path[]);
-void searchInHash(char fname[],char path[]);
+int searchInHash(char fname[],char path[]);
 
 
 int i=1;
  struct hash *hashTable = NULL;
   int eleCount = 0;
 
+//structure of node for chaining in hash
   struct node
   {
         char fname[256];
@@ -22,20 +25,22 @@ int i=1;
         struct node *next;
   };
 
+//hash table structure
   struct hash
   {
         struct node *head;
         int count;
   };
 
-
+//recursively search all the directories
 void listdir(char *name, int level)
 {
 int j,inod;
 char tempo[256];
     struct list *head=NULL,*current,*temp;
-    DIR *dir;
-    struct dirent *entry;
+    DIR *dir;//directory stream
+    struct dirent *entry;//dirent structure provides with inode,type,size of files
+
 
     if (!(dir = opendir(name)))
         return;
@@ -54,8 +59,6 @@ char tempo[256];
 
             if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
                 continue;
-
-           //printf("%d:[%s]\n",i++,entry->d_name);
             listdir(path, level + 1);
         }
 
@@ -66,7 +69,6 @@ char tempo[256];
 		    strcat(tempo,entry->d_name);
 		    searchInHash(entry->d_name,tempo);
 		    insertToHash(entry->d_name,tempo);
-        	    //printf("\t%d:%s\n", i++,entry->d_name);
 		}
     	} while (entry = readdir(dir));
 
@@ -85,7 +87,7 @@ char tempo[256];
         return newnode;
   }
 
-
+//hash table insertion
   void insertToHash(char fname[],char path[])
   {
         int hashIndex = fname[0] % eleCount;
@@ -107,16 +109,16 @@ char tempo[256];
 
 
 
-
-  void searchInHash(char fname[],char path[])
+//searching in hash table
+  int searchInHash(char fname[],char path[])
   {
         int hashIndex = fname[0] % eleCount, flag = 0,val;
-	char str[1024]="rm ";
+	char str[1024]="rm ",ch;
         struct node *myNode;
+	FILE *fp1,*fp2;
         myNode = hashTable[hashIndex].head;
         if (!myNode) {
-                //printf("NA\n");
-                return;
+                return 0;
         }
         while (myNode != NULL) {
                 if (!strcmp(myNode->fname,fname)) {
@@ -137,7 +139,11 @@ char tempo[256];
 			printf("Removed %s\n",myNode->path);
 			break;
 			case 2:
-			//file operations file merging
+			//the merge files copies the content of second file into the first
+			fp1=fopen(path,"a+");
+			fp2=fopen(myNode->path,"r");
+			while( ( ch = fgetc(fp2) ) != EOF )
+      			fputc(ch,fp1);
 			break;
 			case 3:
 			break;
@@ -150,38 +156,20 @@ char tempo[256];
                 myNode = myNode->next;
         }
         if (!flag)
-                //printf("NA\n");
-        return;
-  }
+	{
+	return 0;
+	}
+	return 1;
 
-  void display()
-{
-        struct node *myNode;
-        int i;
-        for (i = 0; i < eleCount; i++)
-        {
-                if (hashTable[i].count == 0)
-                        continue;
-                myNode = hashTable[i].head;
-                if (!myNode)
-                        continue;
-                printf("\nIndex:%c\n",myNode->fname[0]);
-                printf("Name \n");
-                printf("-----\n");
-                while (myNode != NULL)
-                {
-                        printf("%s\n", myNode->fname);
-                        myNode = myNode->next;
-                }
-        }
-        return;
   }
 int main(void)
 {
-    eleCount = 2;
-    hashTable = (struct hash *)calloc(5, sizeof (struct hash));
-    listdir("..", 0);
-    //display();
+    eleCount = 26;
+    struct passwd *pw = getpwuid(getuid());
+
+    char *homedir = pw->pw_dir;
+    hashTable = (struct hash *)calloc(26, sizeof (struct hash));
+    listdir(homedir, 0);
     
     return 0;
 }
