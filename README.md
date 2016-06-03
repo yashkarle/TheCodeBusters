@@ -14,11 +14,13 @@ Usage - Import Eclipse project or Just use the .cpp file
 ----------------------------------------------------------------------------------------
 Assignment 2 - Simple Version Control
 
-Language of Implementation -
+Language of Implementation - C
 
-Environment used - 
+Environment used - gcc on Linux
 
-Usage -
+Usage - Compile the .c file using gcc
+        Then use ./a.out filename for commit 
+        and ./a.out N for displaying Nth version
 
 ----------------------------------------------------------------------------------------
 Assignment 3 - Duplicate Files on a hard drive
@@ -27,7 +29,7 @@ Language of Implementation - C
 
 Environment used - gcc on Linux
 
-Usage - Compile the .c file using gcc and then run the executable file 
+Usage - Compile the .c file using gcc and then run the executable file by ./a.out
 
 ----------------------------------------------------------------------------------------
 
