@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include<string.h>
+#include <pwd.h>
 
 struct node * createNode(int inode,char path[]);
 void listdir(char *name, int level);
@@ -134,12 +135,12 @@ void listdir(char *name, int level)
 			case 1:
 			strcat(str,path);
 			system(str);
-			printf("Removed %s\n",path);
+			printf("Removed from %s\n",path);
 			break;
 			case 2:
 			strcat(str,myNode->path);
 			system(str);
-			printf("Removed %s\n",myNode->path);
+			printf("Removed from %s\n",myNode->path);
 			break;
 			case 3:
 			break;
@@ -157,8 +158,10 @@ void listdir(char *name, int level)
   }
 int main(void)
 {
+struct passwd *pw = getpwuid(getuid());
+char *homedir = pw->pw_dir;
     eleCount = 10;
     hashTable = (struct hash *)calloc(10, sizeof (struct hash));
-    listdir("..", 0);
+    listdir(homedir, 0);
     return 0;
 }
