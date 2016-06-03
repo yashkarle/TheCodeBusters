@@ -39,6 +39,6 @@ Language of Implementation - C
 
 Environment used - CodeBlocks on Windows
 
-Usage - 
+Usage - Import Project on CodeBlocks or just run the .c file
 
 ----------------------------------------------------------------------------------------
